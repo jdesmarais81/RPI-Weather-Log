@@ -157,27 +157,27 @@ def get_weather():
 
     forecast_today = daily[0]
 
-    today = 'HEUTE'
+    today = 'TODAY'
     temp_range_today_min = str(int(forecast_today['temperatureMin']))
     temp_range_today_max = str(int(forecast_today['temperatureMax']))
     next_weather_today = str(forecast_today['summary'])
 
     hourly_forecast = data['hourly']['summary']
 
-    io_str = '{} bis {}°C - {}'.format(
+    io_str = '{} to {}°C - {}'.format(
         temp_range_today_min,
         temp_range_today_max,
         hourly_forecast
     )
 
-    forecast_today = 'Die Vorhersage für {}: {} bis {}°C - {}'.format(
+    forecast_today = 'The prediction for {}: {} to {}°C - {}'.format(
         today,
         temp_range_today_min,
         temp_range_today_max,
         next_weather_today,
     )
 
-    print('Das aktuelle Wetter für {}\nDEBUG SCROLL OUTPUT: {}\n{}\n'.format(
+    print('The current weather for {}\nDEBUG SCROLL OUTPUT: {}\n{}\n'.format(
         print_output,
         scroll_output,
         forecast_today
@@ -188,7 +188,7 @@ def get_weather():
 
     forecast_range_hour = 24  # use len(hourly) for full data (48h)
 
-    print('Das Wetter für die nächsten {} Stunden\n'.format(forecast_range_hour))
+    print('The weather for the next {} hours\n'.format(forecast_range_hour))
 
     for item in range(forecast_range_hour):
         hour = str(datetime.fromtimestamp(hourly[item]['time']).strftime('%H:%M'))
